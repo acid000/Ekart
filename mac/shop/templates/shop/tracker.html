@@ -1,0 +1,37 @@
+{% extends 'shop/basic.html'%}
+{% block title%}Checkout - X cart{%endblock%}
+{%block body%}
+<div class="container">
+  <div class="col my-4">
+<h2>Track Your Items</h2>
+
+</div>
+  <div class="col my-4">
+    <h2>Enter Your Details:</h2>
+    <form class="row g-3" action="/shop/tracker/" id="tracker" method="post">{% csrf_token %}
+      <div class="col-md-6">
+        <input type="hidden" id="item_json" name="item_json">
+    <label for="id" class="form-label">Order id</label>
+    <input type="text" class="form-control" id="id" name="id">
+  </div>
+  <div class="col-md-6">
+    <label for="email" class="form-label">Email</label>
+    <input type="email" class="form-control" id="Email" name="email">
+  </div>
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">Track Order</button>
+  </div>
+</form>
+
+  </div>
+  <div>
+   <ol class="list-group list-group-numbered" id="items">
+       `
+</ol>
+  </div>
+</div>
+
+{%endblock%}
+{% block js%}
+
+{% endblock %}
